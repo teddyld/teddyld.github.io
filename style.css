@@ -1,0 +1,285 @@
+:root {
+  --foreground: #fafafa;
+  --background: #09090b;
+  --primary: #22c55e;
+  --secondary: #166534;
+  --error: #cc3352;
+  --card: #3f4045;
+  --glitch-animation: glitch 0.6s ease 0s infinite;
+  --noise-animation: noise 0.2s linear 0s infinite;
+  --loading-animation: loading 1s linear 0s infinite;
+}
+
+@font-face {
+  font-family: "IBM-VGA";
+  src: url("./assets/Ac437_IBM_VGA_8x16.ttf");
+  font-display: swap;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  color: var(--foreground);
+  font-family: "IBM-VGA", Tahoma;
+  background-color: var(--background);
+  font-size: 110%;
+}
+
+p {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+h3 {
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+}
+
+li + li {
+  margin-top: 0.2rem;
+}
+
+#nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 1rem;
+  align-items: start;
+}
+
+#layout {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+  background: url("./assets/pokkevillage.png") no-repeat center;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  margin: 0 1rem;
+  justify-content: center;
+  gap: 1rem;
+  height: min-content;
+}
+
+#content-main {
+  max-width: 100%;
+  width: 40rem;
+}
+
+#content-sidebar {
+  max-width: 100%;
+  width: 14rem;
+}
+
+#about a {
+  color: var(--primary);
+}
+
+.text-gradient {
+  background-clip: text;
+  background-image: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: transparent;
+}
+
+@media only screen and (max-width: 600px) {
+  main {
+    justify-content: start;
+    flex-direction: column;
+  }
+
+  #content-sidebar {
+    width: 100%;
+  }
+}
+
+/* Content */
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content-item {
+  padding: 1rem;
+  border: solid 2px var(--card);
+  border-radius: 0.2rem;
+  background-color: var(--background);
+}
+
+.content-item h2 {
+  margin-bottom: 0.5rem;
+}
+
+#projects a {
+  color: var(--primary);
+}
+
+#projects-more {
+  font-size: 1.1em;
+}
+
+.external-link-icon {
+  padding-top: 5px;
+}
+
+#projects h3:first-of-type {
+  margin-top: 0;
+}
+
+/* Counter */
+
+#counter div {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.2rem;
+  text-wrap: nowrap;
+  justify-content: space-between;
+}
+
+#counter div div {
+  position: relative;
+}
+
+.counter-light {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  color: var(--primary);
+}
+
+.counter-dark {
+  opacity: 0.3;
+  color: var(--card);
+  z-index: 1;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+header div {
+  margin: 1rem;
+  width: 52.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+footer div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  height: 2rem;
+  width: 52.7rem;
+}
+
+#footer-link {
+  text-decoration: none;
+}
+
+#footer-link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
+}
+
+/* Background Noise */
+
+#noise-overlay {
+  background-image: url("./assets/black-noise.png");
+  opacity: 0.05;
+  inset: -50%;
+  position: fixed;
+  pointer-events: none;
+  animation: var(--noise-animation);
+  -webkit-animation: var(--noise-animation);
+  -moz-animation: var(--noise-animation);
+}
+
+@keyframes noise {
+  0% {
+    transform: translateX(-15%) translateY(-15%);
+  }
+  100% {
+    transform: translateX(15%) translateY(15%);
+  }
+}
+
+.glitch {
+  animation: var(--glitch-animation);
+  -webkit-animation: var(--glitch-animation);
+  -moz-animation: var(--glitch-animation);
+}
+
+@keyframes glitch {
+  0% {
+    transform: skewX(-15deg);
+  }
+  5% {
+    transform: skewX(15deg);
+  }
+  10% {
+    transform: skewX(-15deg);
+  }
+  15% {
+    transform: skewX(15deg);
+  }
+  20% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+/* Status */
+
+.status-success {
+  color: var(--primary);
+}
+
+.status-failed {
+  color: var(--error);
+}
+
+* {
+  cursor: url(https://cur.cursors-4u.net/cursors/cur-1/cur46.ani),
+    url(https://cur.cursors-4u.net/cursors/cur-1/cur46.png), auto !important;
+}

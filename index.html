@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Vincent's neo-city inspired website." />
+    <title>ʕ´•ᴥ•`ʔ teddyld</title>
+    <link rel="icon" type="image/svg+xml" href="assets/bear.ico" />
+    <link href="style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="preconnect" href="https://cur.cursors-4u.net" />
+  </head>
+  <body>
+    <div id="layout">
+      <header>
+        <div class="content-item">
+          <h1 class="glitch text-gradient">VINCENT PHAM</h1>
+        </div>
+      </header>
+      <main>
+        <section class="content-container" id="content-main">
+          <div class="content-item" id="about">
+            <h2 class="text-gradient">ABOUT</h2>
+            <p>A <s>HTML, CSS, and JavaScript</s> exploration of my mind.</p>
+            <ul>
+              <li>I'm a Computer Engineer from UNSW, Sydney</li>
+              <li>I like coding websites and AI applications</li>
+              <li>
+                Website font is
+                <a
+                  href="https://int10h.org/oldschool-pc-fonts/fontlist/font?ibm_vga_8x16"
+                  target="_blank"
+                  >IBM VGA 8x16</a
+                >
+              </li>
+              <li>
+                Background is
+                <a
+                  href="https://www.youtube.com/watch?v=__QdAxqBi5Y"
+                  target="_blank"
+                  >Pokke Village</a
+                >
+                passed through a Sobel filter and edited in photoshop
+              </li>
+            </ul>
+          </div>
+          <div class="content-item" id="projects">
+            <h2 class="text-gradient">PROJECTS</h2>
+            <h3>
+              <a
+                href="https://github.com/teddyld/occlusion-aware-engagement-detection"
+                target="_blank"
+              >
+                Occlusion-aware Engagement Detection
+              </a>
+            </h3>
+            <p>
+              I researched and developed occlusion-aware methods, improving the
+              state-of-the-art in engagement detection by 5%.
+              <a
+                href="https://github.com/teddyld/occlusion-aware-engagement-detection"
+                target="_blank"
+                >Link</a
+              >
+            </p>
+            <h3>
+              <a
+                href="https://github.com/teddyld/hardware-accelerated-knn"
+                target="_blank"
+              >
+                Hardware Accelerated kNN Algorithm
+              </a>
+            </h3>
+            <p>
+              A 100x times accelerated k-nearest neighbour algorithm on
+              hardware.
+              <a
+                href="https://github.com/teddyld/hardware-accelerated-knn"
+                target="_blank"
+                >Link</a
+              >
+            </p>
+            <h3>
+              <a href="https://doro-flax.vercel.app/" target="_blank">
+                Pomodoro
+              </a>
+            </h3>
+            <p>
+              My personal Pomodoro and Trello web-app for time and task
+              management.
+              <a href="https://github.com/teddyld/doro" target="_blank">Link</a>
+            </p>
+
+            <h3>
+              <a
+                href="https://github.com/teddyld/image-style-transfer"
+                target="_blank"
+              >
+                Image Style Transfer
+              </a>
+            </h3>
+            <p>
+              A comprehensive analysis and comparison of traditional CNNs and
+              Generative Networks for IST.
+              <a
+                href="https://github.com/teddyld/image-style-transfer"
+                target="_blank"
+                >Link</a
+              >
+            </p>
+            <h3 id="projects-more">Others:</h3>
+            <p>
+              <a href="https://github.com/teddyld/mae-torch" target="_blank">
+                Pytorch Masked Auto-Encoder</a
+              >
+              ✩
+              <a href="https://github.com/teddyld/ez-transforms" target="_blank"
+                >ez transforms</a
+              >
+              ✩
+              <a
+                href="https://portfolio-teddylds-projects.vercel.app/"
+                target="_blank"
+                >Old portfolio website</a
+              >
+            </p>
+          </div>
+        </section>
+        <section class="content-container" id="content-sidebar">
+          <div class="content-item" id="links">
+            <h2 class="text-gradient">MORE</h2>
+            <div id="nav-links">
+              <a href="index.html">✩ Home</a>
+              <a href="https://github.com/teddyld" target="_blank">✩ GitHub</a>
+              <a
+                href="https://www.linkedin.com/in/vincentpham2/"
+                target="_blank"
+                >✩ LinkedIn</a
+              >
+              <a href="mailto: vincent.pham2@outlook.com">✩ E-mail</a>
+            </div>
+          </div>
+          <div class="content-item" id="counter">
+            <div>
+              Visits:
+              <div>
+                <span class="counter-light" id="counter-visits"></span>
+                <span class="counter-dark">000000</span>
+              </div>
+            </div>
+            <div>
+              Uniq. Visitors:
+              <div>
+                <span class="counter-light" id="counter-unique"></span>
+                <span class="counter-dark">000000</span>
+              </div>
+            </div>
+            <div>
+              On-site:
+              <div>
+                <span class="counter-light" id="counter-onsite"></span>
+                <span class="counter-dark">000000</span>
+              </div>
+            </div>
+          </div>
+          <div class="content-item">
+            <h2 class="text-gradient">STATUS</h2>
+            <div>
+              [
+              <span id="server-status"> ... </span>
+              ] server
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div class="content-item">
+          <p>You gon' get this work</p>
+          <a
+            class="text-gradient"
+            href="mailto: vincent.pham2@outlook.com"
+            id="footer-link"
+            >vincent.pham2@outlook.com</a
+          >
+        </div>
+      </footer>
+      <div id="noise-overlay"></div>
+      <div id="pokke-village-overlay"></div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
