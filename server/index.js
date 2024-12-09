@@ -83,7 +83,7 @@ app.post("/visits/online", async (req, res) => {
 });
 
 // Mark inactive users as offline
-const POLLING_INTERVAL = 3600000; // 1 hour
+const POLLING_INTERVAL = 1800000; // 30 minutes
 setInterval(async () => {
   try {
     await client.query(
