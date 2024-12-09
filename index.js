@@ -1,4 +1,4 @@
-const serverUrl = "https://teddyld-api.vercel.app";
+const serverUrl = "https://teddyld-github-io.vercel.app";
 
 /* Change window title on blur */
 const documentTitle = document.querySelector("title");
