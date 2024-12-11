@@ -4,142 +4,335 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Vincent's neo-city inspired website." />
-    <title>ʕ´•ᴥ•`ʔ teddyld</title>
+    <title>ʕ´•ᴥ•`ʔ vincentpham</title>
     <link rel="icon" type="image/svg+xml" href="assets/bear.ico" />
     <link href="style.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="preconnect" href="https://cur.cursors-4u.net" />
   </head>
   <body>
     <div id="layout">
       <header>
-        <div class="content-item">
-          <h1 class="glitch text-gradient">VINCENT PHAM</h1>
+        <div class="widget content">
+          <h1 class="glitch text-gradient">vincentpham</h1>
         </div>
       </header>
       <main>
-        <section class="content-container" id="content-main">
-          <div class="content-item" id="about">
-            <h2 class="text-gradient">ABOUT</h2>
-            <p>A <s>HTML, CSS, and JavaScript</s> exploration of my mind.</p>
-            <ul>
-              <li>I'm a Computer Engineer from UNSW, Sydney</li>
-              <li>I like coding websites and AI applications</li>
-              <li>
-                Website font is
-                <a
-                  href="https://int10h.org/oldschool-pc-fonts/fontlist/font?ibm_vga_8x16"
-                  target="_blank"
-                  >IBM VGA 8x16</a
-                >
-              </li>
-              <li>
-                Background is
-                <a
-                  href="https://www.youtube.com/watch?v=__QdAxqBi5Y"
-                  target="_blank"
-                  >Pokke Village</a
-                >
-                passed through a Sobel filter and edited in photoshop
-              </li>
-            </ul>
+        <section class="container" id="content-main">
+          <div class="widget">
+            <div class="navigation-tab">
+              <div role="button" class="selected" id="about-toggle">
+                about me
+              </div>
+              <div role="button" id="skills-toggle">skills</div>
+              <div role="button" id="faq-toggle">faq</div>
+            </div>
+            <div class="fixed content" id="about">
+              <ul>
+                <li>
+                  Studying a Bachelor of Engineering (Honours) in Computer
+                  Engineering @ UNSW, Sydney.
+                </li>
+                <li>Based in Sydney, Australia.</li>
+                <li>Enjoyer of programming websites and AI applications</li>
+              </ul>
+            </div>
+            <div class="fixed content hidden" id="skills">
+              <p>
+                Click a skill or technology to filter projects e.g. React.js and
+                Postgres!
+              </p>
+              <p>Backend</p>
+              <div class="skills-list">
+                <button>
+                  Python
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  C
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  Java
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  Node.js
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  Express.js
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  Flask
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  Postgres
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  MongoDB
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  VHDL
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+              </div>
+              <p>Frontend</p>
+              <div class="skills-list">
+                <button>
+                  TypeScript
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  HTML
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  CSS
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  React.js
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  Jest
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  Vitest
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  Zustand
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  React Query
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  OAuth 2.0
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+              </div>
+              <p>AI/ML</p>
+              <div class="skills-list">
+                <button>
+                  PyTorch
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+                <button>
+                  OpenCV
+                  <span class="top-line"></span>
+                  <span class="right-line"></span>
+                  <span class="left-line"></span>
+                  <span class="bottom-line"></span>
+                </button>
+              </div>
+            </div>
+            <div class="fixed content hidden" id="faq">
+              <ul>
+                <li>
+                  Website coded in HTML, CSS, and (Vanilla) JavaScript using an
+                  Express.js backend with Postgres.
+                </li>
+                <li>
+                  Website font is
+                  <a
+                    href="https://int10h.org/oldschool-pc-fonts/fontlist/font?ibm_vga_8x16"
+                    target="_blank"
+                    >&lt;IBM VGA 8x16&gt;</a
+                  >
+                </li>
+                <li>
+                  Background is
+                  <a
+                    href="https://www.youtube.com/watch?v=__QdAxqBi5Y"
+                    target="_blank"
+                    >&lt;Pokke Village&gt;</a
+                  >
+                  (from my favourite Monster Hunter game) passed through a Sobel
+                  filter.
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="content-item" id="projects">
-            <h2 class="text-gradient">PROJECTS</h2>
-            <h3>
-              <a
-                href="https://github.com/teddyld/occlusion-aware-engagement-detection"
-                target="_blank"
-              >
-                Occlusion-aware Engagement Detection
-              </a>
-            </h3>
-            <p>
-              I researched and developed occlusion-aware methods, improving the
-              state-of-the-art in engagement detection by 5%.
-              <a
-                href="https://github.com/teddyld/occlusion-aware-engagement-detection"
-                target="_blank"
-                >Link</a
-              >
-            </p>
-            <h3>
-              <a
-                href="https://github.com/teddyld/hardware-accelerated-knn"
-                target="_blank"
-              >
-                Hardware Accelerated kNN Algorithm
-              </a>
-            </h3>
-            <p>
-              A 100x times accelerated k-nearest neighbour algorithm on
-              hardware.
-              <a
-                href="https://github.com/teddyld/hardware-accelerated-knn"
-                target="_blank"
-                >Link</a
-              >
-            </p>
-            <h3>
-              <a href="https://doro-flax.vercel.app/" target="_blank">
-                Pomodoro
-              </a>
-            </h3>
-            <p>
-              My personal Pomodoro and Trello web-app for time and task
-              management.
-              <a href="https://github.com/teddyld/doro" target="_blank">Link</a>
-            </p>
+          <div class="widget">
+            <div class="navigation-tab">
+              <div class="selected" id="projects-toggle">projects</div>
+            </div>
+            <div class="content" id="projects">
+              <div class="hidden" id="message">
+                <h3>Just chickens here...</h3>
+                <p>
+                  Change filtered skills or check out my
+                  <a href="https://github.com/teddyld" target="_blank"
+                    >GitHub</a
+                  >
+                  for more projects not listed here.
+                </p>
+              </div>
+              <div class="project" id="project-1">
+                <h3>occlusion-aware engagement detection</h3>
+                <p>
+                  I R&D'd data augmentation and reconstruction methods for
+                  improving student engagement in online learning environments,
+                  improving the state-of-the-art in engagement detection by
+                  5.12%.
+                  <a
+                    href="https://github.com/teddyld/occlusion-aware-engagement-detection"
+                    target="_blank"
+                    >&lt;source&gt;</a
+                  >
+                </p>
+                <div class="project-skills">
+                  <div>Python</div>
+                  <div>PyTorch</div>
+                  <div>OpenCV</div>
+                </div>
+              </div>
 
-            <h3>
-              <a
-                href="https://github.com/teddyld/image-style-transfer"
-                target="_blank"
-              >
-                Image Style Transfer
-              </a>
-            </h3>
-            <p>
-              A comprehensive analysis and comparison of traditional CNNs and
-              Generative Networks for IST.
-              <a
-                href="https://github.com/teddyld/image-style-transfer"
-                target="_blank"
-                >Link</a
-              >
-            </p>
-            <h3 id="projects-more">Others:</h3>
-            <p>
-              <a href="https://github.com/teddyld/mae-torch" target="_blank">
-                Pytorch Masked Auto-Encoder</a
-              >
-              ✩
-              <a href="https://github.com/teddyld/ez-transforms" target="_blank"
-                >ez transforms</a
-              >
-              ✩
-              <a
-                href="https://portfolio-teddylds-projects.vercel.app/"
-                target="_blank"
-                >Old portfolio website</a
-              >
-            </p>
+              <div class="project" id="project-2">
+                <h3>hardware accelerated knn algorithm</h3>
+                <p>
+                  A 100x times accelerated k-nearest neighbour algorithm
+                  implemented on hardware using Vivado HLS optimizations.
+                  <a
+                    href="https://github.com/teddyld/hardware-accelerated-knn"
+                    target="_blank"
+                    >&lt;source&gt;</a
+                  >
+                </p>
+                <div class="project-skills">
+                  <div>C</div>
+                  <div>C++</div>
+                  <div>VHDL</div>
+                </div>
+              </div>
+
+              <div class="project" id="project-3">
+                <h3>pomodoro & trello board</h3>
+                <p>
+                  A Pomodoro and Trello web-app for time and task management
+                  developed using React.js.
+                  <a href="https://github.com/teddyld/doro" target="_blank"
+                    >&lt;source&gt;</a
+                  >
+                  <a href="https://doro-flax.vercel.app/" target="_blank"
+                    >&lt;visit&gt;</a
+                  >
+                </p>
+                <div class="project-skills">
+                  <div>Postgres</div>
+                  <div>React.js</div>
+                  <div>Node.js</div>
+                  <div>Express.js</div>
+                  <div>Zustand</div>
+                  <div>NextUI</div>
+                  <div>TailwindCSS</div>
+                  <div>React Query</div>
+                  <div>OAuth 2.0</div>
+                  <div>Jest</div>
+                </div>
+              </div>
+
+              <div class="project" id="project-4">
+                <h3>image style transfer</h3>
+                <p>
+                  An analysis and comparison of traditional CNNs vs. Generative
+                  Networks for IST.
+                  <a
+                    href="https://github.com/teddyld/image-style-transfer"
+                    target="_blank"
+                    >&lt;source&gt;</a
+                  >
+                </p>
+                <div class="project-skills">
+                  <div>Python</div>
+                  <div>PyTorch</div>
+                  <div>OpenCV</div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
-        <section class="content-container" id="content-sidebar">
-          <div class="content-item" id="links">
-            <h2 class="text-gradient">MORE</h2>
-            <div id="nav-links">
-              <a href="index.html">✩ Home</a>
-              <a href="https://github.com/teddyld" target="_blank">✩ GitHub</a>
+        <section class="container" id="content-sidebar">
+          <div class="widget">
+            <div class="title">
+              <h2 class="text-gradient">more</h2>
+            </div>
+            <div class="content" id="navigation">
+              <a href="index.html">✩ home</a>
+              <a href="https://github.com/teddyld" target="_blank">✩ github</a>
               <a
                 href="https://www.linkedin.com/in/vincentpham2/"
                 target="_blank"
-                >✩ LinkedIn</a
+                >✩ linkedin</a
               >
-              <a href="mailto: vincent.pham2@outlook.com">✩ E-mail</a>
+              <a href="mailto: vincent.pham2@outlook.com">✩ e-mail</a>
             </div>
           </div>
-          <div class="content-item" id="counter">
+          <div class="widget content" id="counter">
             <div>
               Visits:
               <div>
@@ -162,9 +355,11 @@
               </div>
             </div>
           </div>
-          <div class="content-item">
-            <h2 class="text-gradient">STATUS</h2>
-            <div>
+          <div class="widget">
+            <div class="title">
+              <h2 class="text-gradient">status</h2>
+            </div>
+            <div class="content">
               [
               <span id="server-status"> ... </span>
               ] server
@@ -173,18 +368,14 @@
         </section>
       </main>
       <footer>
-        <div class="content-item">
-          <p>You gon' get this work</p>
-          <a
-            class="text-gradient"
-            href="mailto: vincent.pham2@outlook.com"
-            id="footer-link"
-            >vincent.pham2@outlook.com</a
+        <div class="widget content">
+          <p>vincentpham circa 2024</p>
+          <a href="https://github.com/teddyld/teddyld.github.io" target="_blank"
+            >&lt;source code></a
           >
         </div>
       </footer>
       <div id="noise-overlay"></div>
-      <div id="pokke-village-overlay"></div>
     </div>
     <script src="index.js"></script>
   </body>

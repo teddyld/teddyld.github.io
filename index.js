@@ -1,4 +1,4 @@
-const serverUrl = "https://teddyld-github-io.vercel.app";
+const serverUrl = "http://localhost:5050";
 
 /* Change window title on blur */
 const documentTitle = document.querySelector("title");
@@ -12,15 +12,6 @@ const handleWindowBlur = () => {
 
 window.addEventListener("blur", handleWindowBlur);
 window.addEventListener("focus", handleWindowFocus);
-
-const cleanupEventListeners = () => {
-  window.removeEventListener("blur", handleWindowBlur);
-  window.removeEventListener("focus", handleWindowFocus);
-};
-
-if (window.closed) {
-  cleanupEventListeners();
-}
 
 const addStatusSuccess = (element) => {
   element.classList.add("status-success");
@@ -160,6 +151,7 @@ const updateVisits = async () => {
 const POLL_INTERVAL = 600000; // 10 minutes
 const pollVisits = () => {
   setInterval(() => {
+    checkServerStatus();
     updateVisits();
   }, POLL_INTERVAL);
 };
@@ -188,3 +180,148 @@ const HEARTBEAT_INTERVAL = 3600000; // 1 hour
 setInterval(() => {
   setUserOnline();
 }, HEARTBEAT_INTERVAL);
+
+/* Skills filtering */
+const skillsList = document.querySelectorAll(".skills-list");
+const projectsList = document.querySelectorAll(".project");
+const projectSection = document.querySelector("#projects");
+const emptyMessage = document.querySelector("#message");
+
+// Parse projects ids into their skills
+const projectSkills = {};
+
+for (const project of projectsList) {
+  const id = project.id;
+  const skills = [];
+  const skillsDiv = project.querySelector(".project-skills");
+  for (const skill of skillsDiv.children) {
+    skills.push(skill);
+  }
+
+  projectSkills[id] = { skills, project };
+}
+
+const filteredSkills = [];
+
+const filterProjects = (target) => {
+  if (filteredSkills.includes(target)) {
+    const index = filteredSkills.indexOf(target);
+    filteredSkills.splice(index, 1);
+  } else {
+    filteredSkills.push(target);
+  }
+
+  for (const [_, info] of Object.entries(projectSkills)) {
+    const skillDivs = info.skills;
+    const project = info.project;
+    const skills = skillDivs.map((div) => div.innerText);
+
+    let visible = true;
+    for (const idx in filteredSkills) {
+      // Filtered skills contains skill not in project
+      if (!skills.includes(filteredSkills[idx])) {
+        visible = false;
+        project.classList.add("hidden");
+      } else {
+        const skillIdx = skills.indexOf(filteredSkills[idx]);
+        skillDivs[skillIdx].classList.add("skill-selected");
+      }
+    }
+
+    if (visible) {
+      project.classList.remove("hidden");
+    }
+
+    // Update style of project skills if they are in filtered skills
+    for (const div of skillDivs) {
+      if (!filteredSkills.includes(div.innerText)) {
+        div.classList.remove("skill-selected");
+      } else {
+        div.classList.add("skill-selected");
+      }
+    }
+  }
+
+  // Check if any projects match the filtered skills
+  for (const child of projectSection.children) {
+    if (!child.classList.contains("hidden") && child.id !== "message") {
+      emptyMessage.classList.add("hidden");
+      return;
+    }
+  }
+
+  emptyMessage.classList.remove("hidden");
+};
+
+for (const grp of skillsList) {
+  for (const btn of grp.children) {
+    const target = btn.innerText.replace(/\n/g, "").trim();
+    btn.addEventListener("click", function () {
+      if (filteredSkills.includes(target)) {
+        btn.classList.remove("skill-selected");
+      } else {
+        btn.classList.add("skill-selected");
+      }
+
+      filterProjects(target);
+    });
+  }
+}
+
+/* Tab-list Navigation */
+
+const aboutToggle = document.querySelector("#about-toggle");
+const skillsToggle = document.querySelector("#skills-toggle");
+const faqToggle = document.querySelector("#faq-toggle");
+
+const aboutContent = document.querySelector("#about");
+const skillsContent = document.querySelector("#skills");
+const faqContent = document.querySelector("#faq");
+
+const pageSectionTop = {
+  about: [aboutToggle, aboutContent],
+  skills: [skillsToggle, skillsContent],
+  faq: [faqToggle, faqContent],
+};
+
+const handleNavigationToggle = (type, section) => {
+  const target = section[type];
+  target[0].classList.add("selected");
+  target[1].classList.remove("hidden");
+
+  for (let key in section) {
+    if (key !== type) {
+      const rest = section[key];
+      rest[0].classList.remove("selected");
+      rest[1].classList.add("hidden");
+    }
+  }
+};
+
+aboutToggle.addEventListener("click", function () {
+  handleNavigationToggle("about", pageSectionTop);
+});
+skillsToggle.addEventListener("click", function () {
+  handleNavigationToggle("skills", pageSectionTop);
+});
+faqToggle.addEventListener("click", function () {
+  handleNavigationToggle("faq", pageSectionTop);
+});
+
+// const cleanupEventListeners = () => {
+//   window.removeEventListener("blur", handleWindowBlur);
+//   window.removeEventListener("focus", handleWindowFocus);
+//   aboutToggle.removeEventListener("click", handleNavigationToggle);
+//   skillsToggle.removeEventListener("click", handleNavigationToggle);
+//   faqToggle.removeEventListener("click", handleNavigationToggle);
+//   projectsToggle.removeEventListener("click", handleNavigationToggle);
+
+//   for (const tooltip of tooltipElements) {
+//     tooltip.removeEventListener("mousemove", showTooltip);
+//     tooltip.addEventListener("mouseout", hideTooltip);
+//   }
+// };
+
+// if (window.closed) {
+//   cleanupEventListeners();
+// }
