@@ -1,4 +1,4 @@
-const serverUrl = "http://localhost:5050";
+const serverUrl = "https://teddyld-github-io.vercel.app";
 
 /* Change window title on blur */
 const documentTitle = document.querySelector("title");
