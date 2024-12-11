@@ -307,21 +307,3 @@ skillsToggle.addEventListener("click", function () {
 faqToggle.addEventListener("click", function () {
   handleNavigationToggle("faq", pageSectionTop);
 });
-
-// const cleanupEventListeners = () => {
-//   window.removeEventListener("blur", handleWindowBlur);
-//   window.removeEventListener("focus", handleWindowFocus);
-//   aboutToggle.removeEventListener("click", handleNavigationToggle);
-//   skillsToggle.removeEventListener("click", handleNavigationToggle);
-//   faqToggle.removeEventListener("click", handleNavigationToggle);
-//   projectsToggle.removeEventListener("click", handleNavigationToggle);
-
-//   for (const tooltip of tooltipElements) {
-//     tooltip.removeEventListener("mousemove", showTooltip);
-//     tooltip.addEventListener("mouseout", hideTooltip);
-//   }
-// };
-
-// if (window.closed) {
-//   cleanupEventListeners();
-// }
