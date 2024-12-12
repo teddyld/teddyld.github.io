@@ -5,6 +5,7 @@ import cors from "cors";
 import { v4 as uuidv4 } from "uuid";
 
 import { client } from "./src/db.js";
+import { getRecentlyPlayedTrack } from "./src/lastfm.js";
 
 const app = express();
 
@@ -79,6 +80,16 @@ app.post("/visits/online", async (req, res) => {
     res.json({ success: true });
   } catch (err) {
     res.json({ success: false });
+  }
+});
+
+// Get my recently played track
+app.get("/vibes", async (req, res) => {
+  try {
+    const { artist, name, image, url } = await getRecentlyPlayedTrack();
+    res.json({ artist, name, image, url });
+  } catch (err) {
+    res.status(400).send({ error: "A system error occurred" });
   }
 });
 

@@ -13,12 +13,12 @@ const handleWindowBlur = () => {
 window.addEventListener("blur", handleWindowBlur);
 window.addEventListener("focus", handleWindowFocus);
 
-const addStatusSuccess = (element) => {
+const statusOK = (element) => {
   element.classList.add("status-success");
   element.innerText = "OK";
 };
 
-const addStatusFailed = (element) => {
+const statusFailed = (element) => {
   element.classList.add("status-failed");
   element.innerText = "FAILED";
 };
@@ -32,15 +32,54 @@ const checkServerStatus = async () => {
         "Content-type": "application/json",
       },
     });
-    addStatusSuccess(serverStatus);
+    statusOK(serverStatus);
   } catch (err) {
-    addStatusFailed(serverStatus);
+    statusFailed(serverStatus);
   }
 };
 
 checkServerStatus();
 
+/* Fetch recently played song */
+
+const vibesStatus = document.querySelector("#vibes-status");
+const vibesName = document.querySelector("#vibes-name");
+const vibesArtist = document.querySelector("#vibes-artist");
+const vibesImage = document.querySelector("#vibes-image");
+const vibesLink = document.querySelector("#vibes-link");
+const vibesMessage = document.querySelector("#vibes-message");
+
+const getSong = async () => {
+  try {
+    const response = await fetch(`${serverUrl}/vibes`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+
+    const result = await response.json();
+    const { artist, name, image, url } = result;
+
+    vibesName.innerText = name;
+    vibesArtist.innerText = artist;
+    vibesImage.setAttribute("src", image);
+    vibesLink.setAttribute("href", url);
+    vibesImage.classList.remove("hidden");
+    vibesMessage.classList.add("hidden");
+
+    statusOK(vibesStatus);
+  } catch (err) {
+    vibesImage.classList.add("hidden");
+    vibesMessage.classList.remove("hidden");
+    statusFailed(vibesStatus);
+  }
+};
+
+getSong();
+
 /* Update visit counts */
+
 const counterVisits = document.querySelector("#counter-visits");
 const counterUnique = document.querySelector("#counter-unique");
 const counterOnline = document.querySelector("#counter-onsite");
@@ -143,14 +182,15 @@ const updateVisits = async () => {
       localStorage.setItem("user", user);
     }
   } catch (err) {
-    addStatusFailed(serverStatus);
+    statusFailed(serverStatus);
   }
 };
 
-// Poll count of visitors
-const POLL_INTERVAL = 600000; // 10 minutes
+// Poll count of visitors and song
+const POLL_INTERVAL = 300000; // 5 minutes
 const pollVisits = () => {
   setInterval(() => {
+    getSong();
     checkServerStatus();
     updateVisits();
   }, POLL_INTERVAL);

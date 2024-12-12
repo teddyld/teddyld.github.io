@@ -67,6 +67,14 @@ ul {
   margin: 0;
 }
 
+#emoji {
+  white-space: nowrap;
+}
+
+.italic {
+  font-style: italic;
+}
+
 .navigation-tab {
   display: flex;
   flex-wrap: wrap;
@@ -98,13 +106,22 @@ ul {
   align-items: start;
 }
 
+#navigation > a {
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+#navigation > a:hover {
+  text-decoration: underline;
+}
+
 #layout {
   display: flex;
   position: relative;
   min-height: 100vh;
   flex-direction: column;
   overflow: hidden;
-  background: url("./assets/pokkevillage.png") no-repeat center;
+  background: url("./assets/pokkevillage.webp") no-repeat center;
 }
 
 main {
@@ -175,12 +192,17 @@ main {
   padding: 1rem;
 }
 
-#about li + li {
-  margin-top: 0.3rem;
+.content a {
+  color: var(--primary);
+  text-decoration: underline;
 }
 
-#faq a {
-  color: var(--primary);
+.content a:hover {
+  font-weight: bold;
+}
+
+#about li + li {
+  margin-top: 0.3rem;
 }
 
 #faq li + li {
@@ -191,23 +213,20 @@ main {
   padding-left: 1rem;
 }
 
-#projects a {
-  color: var(--primary);
-}
-
 #projects p {
   margin-bottom: 0.5rem;
 }
 
-#projects h3 {
+#projects h2 {
   margin-bottom: 0.5rem;
+  font-size: 1.2em;
 }
 
 .external-link-icon {
   padding-top: 5px;
 }
 
-#projects h3:first-of-type {
+#projects h2:first-of-type {
   margin-top: 0;
 }
 
@@ -217,7 +236,7 @@ main {
 
 .selected {
   display: block;
-  background: var(--primary);
+  background: var(--secondary);
   color: white;
 }
 
@@ -445,4 +464,36 @@ footer a {
 
 .status-failed {
   color: var(--error);
+}
+
+/* Vibes */
+
+#vibes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#vibes-image {
+  width: 75px;
+  height: 75px;
+  filter: grayscale();
+}
+
+#vibes-image:hover {
+  filter: none;
+}
+
+#vibes-name {
+  font-weight: bold;
+}
+
+#vibes-artist {
+  opacity: 0.8;
+  font-size: 0.8em;
+}
+
+#vibes-link > div {
+  width: 75px;
+  height: 75px;
+  border: 1px solid var(--card);
 }
