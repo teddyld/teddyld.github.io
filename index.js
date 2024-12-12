@@ -14,6 +14,7 @@ window.addEventListener("blur", handleWindowBlur);
 window.addEventListener("focus", handleWindowFocus);
 
 const statusOK = (element) => {
+  element.classList.remove("status-failed");
   if (!element.classList.contains("status-success")) {
     element.classList.add("status-success");
   }
@@ -21,6 +22,7 @@ const statusOK = (element) => {
 };
 
 const statusFailed = (element) => {
+  element.classList.remove("status-success");
   if (!element.classList.contains("status-failed")) {
     element.classList.add("status-failed");
   }
