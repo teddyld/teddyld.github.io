@@ -14,12 +14,16 @@ window.addEventListener("blur", handleWindowBlur);
 window.addEventListener("focus", handleWindowFocus);
 
 const statusOK = (element) => {
-  element.classList.add("status-success");
+  if (!element.classList.contains("status-success")) {
+    element.classList.add("status-success");
+  }
   element.innerText = "OK";
 };
 
 const statusFailed = (element) => {
-  element.classList.add("status-failed");
+  if (!element.classList.contains("status-failed")) {
+    element.classList.add("status-failed");
+  }
   element.innerText = "FAILED";
 };
 
