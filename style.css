@@ -492,6 +492,10 @@ footer a {
   font-size: 0.8em;
 }
 
+#vibes > div {
+  overflow: hidden;
+}
+
 #vibes-link > div {
   width: 75px;
   height: 75px;

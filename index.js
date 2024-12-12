@@ -42,8 +42,6 @@ const checkServerStatus = async () => {
   }
 };
 
-checkServerStatus();
-
 /* Fetch recently played song */
 
 const vibesStatus = document.querySelector("#vibes-status");
@@ -79,8 +77,6 @@ const getSong = async () => {
     statusFailed(vibesStatus);
   }
 };
-
-getSong();
 
 /* Update visit counts */
 
@@ -194,8 +190,8 @@ const updateVisits = async () => {
 const POLL_INTERVAL = 300000; // 5 minutes
 const pollVisits = () => {
   setInterval(() => {
-    getSong();
     checkServerStatus();
+    getSong();
     updateVisits();
   }, POLL_INTERVAL);
 };
@@ -351,3 +347,6 @@ skillsToggle.addEventListener("click", function () {
 faqToggle.addEventListener("click", function () {
   handleNavigationToggle("faq", pageSectionTop);
 });
+
+checkServerStatus();
+getSong();
