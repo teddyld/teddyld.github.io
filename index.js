@@ -158,6 +158,7 @@ const { id: counterOnlineLoadingId, delay: onlineDelay } =
   counterLoadingAnimation(counterOnline);
 
 const updateVisits = async () => {
+  checkServerStatus();
   try {
     const response = await fetch(`${serverUrl}/visits/update`, {
       method: "POST",
@@ -192,14 +193,10 @@ const updateVisits = async () => {
 const POLL_INTERVAL = 300000; // 5 minutes
 const pollVisits = () => {
   setInterval(() => {
-    checkServerStatus();
     getSong();
     updateVisits();
   }, POLL_INTERVAL);
 };
-
-updateVisits();
-pollVisits();
 
 // Heartbeat to maintain user's online status
 const setUserOnline = async () => {
@@ -350,5 +347,6 @@ faqToggle.addEventListener("click", function () {
   handleNavigationToggle("faq", pageSectionTop);
 });
 
-checkServerStatus();
+updateVisits();
+pollVisits();
 getSong();
