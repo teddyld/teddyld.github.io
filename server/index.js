@@ -94,7 +94,7 @@ app.get("/vibes", async (req, res) => {
 });
 
 // Mark inactive users as offline
-const POLLING_INTERVAL = 1800000; // 30 minutes
+const POLLING_INTERVAL = 86400000; // 24 hours
 setInterval(async () => {
   try {
     await client.query(
