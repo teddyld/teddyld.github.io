@@ -190,7 +190,7 @@ const updateVisits = async () => {
 };
 
 // Poll count of visitors and song
-const POLL_INTERVAL = 300000; // 5 minutes
+const POLL_INTERVAL = 3600000; // 1 hr
 const pollVisits = () => {
   setInterval(() => {
     getSong();
